@@ -1,19 +1,15 @@
-=== Pine PRO ===
+=== Pine PRO Child ===
 
 Contributors: themejack
 Tags: translation-ready, custom-background, theme-options, custom-menu, post-formats, threaded-comments
 
 Requires at least: 4.0
-Tested up to: 4.6
+Tested up to: 4.7
 Stable tag: 1.0.0
 License: Themeforest Regular License
 License URI: https://themeforest.net/licenses/terms/regular
 
 Responsive WordPress theme perfectly designed for design and content agencies, architecture, photography and music studios and personal portfolio websites.
-
-== Description ==
-
-
 
 == Installation ==
 
@@ -23,5 +19,5 @@ Responsive WordPress theme perfectly designed for design and content agencies, a
 
 == Changelog ==
 
-= 1.0 - Jan 24 2017 =
+= 1.0.0 - Apr 21 2017 =
 * Initial release
