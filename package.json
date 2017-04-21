@@ -1,4 +1,7 @@
 {
+  "name": "pine-pro-child",
+  "description": "Pine PRO WP child theme",
+  "version": "1.0.0",
   "devDependencies": {
     "gulp": "git+https://git@github.com/gulpjs/gulp.git#4.0",
     "gulp-include": "1.x.x",

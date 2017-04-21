@@ -5,8 +5,8 @@ var config = require( './gulpconfig.json' ),
 		less: [],
 	},
 	through = require( 'through2' ),
+	fs = require( 'fs' ),
 	gulp = require( 'gulp' ),
-	touch = require( 'gulp-touch' ),
 	plumber = require( 'gulp-plumber' ),
 	gutil = require( 'gulp-util' ),
 	notify = require( 'gulp-notify' ),
@@ -20,6 +20,22 @@ var config = require( './gulpconfig.json' ),
 	wpPot = require( 'gulp-wp-pot' ),
 	Autoprefix = new LessPluginAutoPrefix( { browsers: [ '> 5%', 'last 2 versions', 'Firefox ESR', 'not ie < 10' ] } ),
 	LessPlugins = [ CombineMediaQueries, Autoprefix ];
+
+const gulpTouch = function() {
+	'use strict';
+
+	return through.obj( function( file, enc, callback ) {
+		if ( file.isNull() ) {
+			return callback( null, file );
+		}
+
+		const time = new Date();
+
+		fs.utimes( file.path, time, time, () => {
+			callback( null, file );
+		} );
+	} );
+};
 
 for ( var group in config.build.less ) {
 	tasks.less.push( 'build:less:' + group );
@@ -48,7 +64,7 @@ tasks.less.forEach( function( task ) {
 			;
 			config.build.less[ group ][ src ].forEach( function( path ) {
 				pipeline.pipe( gulp.dest( path ) )
-				.pipe( touch() );
+					.pipe( gulpTouch() );
 			} );
 		}
 
@@ -76,7 +92,8 @@ tasks.js.forEach( function( task ) {
 			;
 
 			config.build.js[ group ][ src ].forEach( function( path ) {
-				pipeline.pipe( gulp.dest( path ) );
+				pipeline.pipe( gulp.dest( path ) )
+					.pipe( gulpTouch() );;
 			} );
 		}
 
