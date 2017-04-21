@@ -1,0 +1,3 @@
+( function( $ ) {
+	// This code will be executed in WP Customizer preview...
+} ( jQuery ) );

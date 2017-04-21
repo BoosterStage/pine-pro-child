@@ -1,0 +1,34 @@
+{
+    "watch": [
+        {
+            "files" : "source/less/**/*.less",
+            "build" : { "less" : "default" }
+        },
+        {
+            "files" : "source/js/**/*.js",
+            "build" : { "js" : "default" }
+        }
+    ],
+    "build": {
+        "less": {
+            "default": {
+                "source/less/style.less": [
+                    "css/"
+                ],
+                "source/less/editor.less": [
+                    "css/"
+                ]
+            }
+        },
+        "js": {
+            "default": {
+                "source/js/scripts.js": [
+                    "js/"
+                ],
+                "source/js/customizer.js": [
+                    "js/"
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,11 @@
+.DS_Store
+node_modules
+npm-debug.log
+
+/css
+/js
+/admin/css
+/admin/js
+/admin/json
+/img/icons/symbols
+/dist
